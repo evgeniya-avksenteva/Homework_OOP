@@ -5,6 +5,7 @@ from src.class_category import Category
 from src.class_smartphone import Smartphone
 from src.class_lawngrass import LawnGrass
 
+
 @pytest.fixture
 def first_product():
     return Product(
@@ -83,6 +84,7 @@ def product_dict():
         "price": 145.75,
         "quantity": 23,
     }
+
 
 @pytest.fixture
 def smartphone1():
