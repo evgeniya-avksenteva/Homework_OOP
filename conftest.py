@@ -2,54 +2,8 @@ import pytest
 
 from src.class_product import Product
 from src.class_category import Category
-
-
-# @pytest.fixture
-# def first_product():
-#     return Product(
-#         "Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5
-#     )
-#
-#
-# @pytest.fixture
-# def second_product():
-#     return Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
-#
-#
-# @pytest.fixture
-# def category():
-#     return Category("Смартфоны",
-#                     "Смартфоны, как средство не только коммуникации,"
-#                     " но и получения дополнительных функций для удобства жизни",
-#                     [
-#                         Product(
-#                             "Samsung Galaxy S23 Ultra",
-#                             "256GB, Серый цвет, 200MP камера",
-#                             180000.0, 5
-#                         ),
-#                         Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
-#                     ])
-
-
-# @pytest.fixture
-# def first_product():
-#     return Product(
-#         name="Product",
-#         description="Description of the product",
-#         price=84.50,
-#         quantity=10,
-#     )
-
-
-# @pytest.fixture
-# def second_product():
-#     return Product(
-#         name="Product number two",
-#         description="Description of the product number two",
-#         price=155.87,
-#         quantity=34,
-#     )
-
+from src.class_smartphone import Smartphone
+from src.class_lawngrass import LawnGrass
 
 @pytest.fixture
 def first_product():
@@ -129,3 +83,56 @@ def product_dict():
         "price": 145.75,
         "quantity": 23,
     }
+
+@pytest.fixture
+def smartphone1():
+    return Smartphone(
+        "Samsung Galaxy S23 Ultra",
+        "256GB, Серый цвет, 200MP камера",
+        180000.0,
+        5,
+        95.5,
+        "S23 Ultra",
+        256,
+        "Серый",
+    )
+
+
+@pytest.fixture
+def smartphone2():
+    return Smartphone(
+        name="Iphone 15",
+        description="512GB, Gray space",
+        price=210000.0,
+        quantity=8,
+        efficiency=98.2,
+        model="15",
+        memory=512,
+        color="Gray space",
+    )
+
+
+@pytest.fixture
+def lawn_grass1():
+    return LawnGrass(
+        "Газонная трава",
+        "Элитная трава для газона",
+        500.0,
+        20,
+        "Россия",
+        "7 дней",
+        "Зеленый",
+    )
+
+
+@pytest.fixture
+def lawn_grass2():
+    return LawnGrass(
+        "Газонная трава 2",
+        "Выносливая трава",
+        450.0,
+        15,
+        "США",
+        "5 дней",
+        "Темно-зеленый",
+    )
