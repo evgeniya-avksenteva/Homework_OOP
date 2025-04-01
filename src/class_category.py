@@ -25,12 +25,12 @@ class Category:
 
     def add_product(self, product):
         """Добавляет новый продукт в атрибут products"""
-        if not isinstance(product, Product):
-            raise TypeError("Можно добавлять только объекты класса Product или его наследников.")
+        if isinstance(product, Product):
+            self.__products.append(product)
+            Category.product_count += 1
+        else:
+            raise TypeError
 
-        self.__products.append(product)
-        Category.product_count += 1
-        # self.product_count += 1
 
     @property
     def products(self) -> str:
