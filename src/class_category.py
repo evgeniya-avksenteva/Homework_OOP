@@ -38,7 +38,3 @@ class Category:
             product_list += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
         return product_list
 
-
-# if __name__ == '__main__':
-#     result = Category("Product", "Description", ["product1", "product2", "product3"])
-#     print(result)
