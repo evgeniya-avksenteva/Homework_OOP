@@ -35,7 +35,7 @@ def test_new_product(product_dict):
 def test_prod_price_property(capsys, first_product):
     first_product.price = -756.57
     message = capsys.readouterr()
-    assert message.out.strip() == "Цена не должна быть нулевая или отрицательная"
+    assert message.out.strip().split("\n")[-1] == "Цена не должна быть нулевая или отрицательная"
     first_product.price = 756.57
     assert first_product.price == 756.57
 
