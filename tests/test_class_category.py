@@ -1,5 +1,8 @@
 import pytest
 
+from src.class_category import Category
+from src.class_product import Product
+
 # def test_category_init(category) -> None:
 #     assert category.name == "Смартфоны"
 #     assert category.description == (
@@ -58,3 +61,26 @@ def test_cat_get_product_list_property(first_category, second_category):
 def test_category_str(first_category, second_category):
     assert str(first_category) == "Category, количество продуктов: 44 шт."
     assert str(second_category) == "Category number two, количество продуктов: 76 шт."
+
+
+def test_middle_price_with_products():
+    product1 = Product("Product A", "красный цвет", 100, quantity=1)
+    product2 = Product("Product B", "зеленый цвет", 300, quantity=2)
+
+    category = Category("Смартфоны", "Категория смартфонов", [product1, product2])
+
+    category.add_product(product1)
+    category.add_product(product2)
+
+    # Проверяем среднюю цену
+    assert category.middle_price() == 133.33
+
+
+def test_middle_price_no_products(capsys):
+    category = Category("Пустая категория", "Категория без продуктов", [])
+    # Проверяем среднюю цену при отсутствии продуктов
+    result = category.middle_price()
+    # Проверяем вывод сообщения и результат
+    captured = capsys.readouterr()
+    assert result == 0
+    assert captured.out.strip() == 'В категории отсутствуют товары'

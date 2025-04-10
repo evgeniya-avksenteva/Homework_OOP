@@ -31,6 +31,18 @@ class Category:
         else:
             raise TypeError
 
+
+    def middle_price(self):
+        """Функция вычисляет среднюю цену товаров в категории"""
+        try:
+            total_sum = sum([i.price for i in self.__products])
+            total_quantity = sum([i.quantity for i in self.__products])
+            return round(total_sum/total_quantity,2)
+        except ZeroDivisionError as e:
+            print('В категории отсутствуют товары')
+            return 0
+
+
     @property
     def products(self) -> str:
         product_list = ""

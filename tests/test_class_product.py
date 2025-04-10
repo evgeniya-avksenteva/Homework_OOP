@@ -1,15 +1,5 @@
 from src.class_product import Product
-
-# def test_product_init(first_product, second_product) -> None:
-#     assert first_product.name == "Samsung Galaxy S23 Ultra"
-#     assert first_product.description == "256GB, Серый цвет, 200MP камера"
-#     assert first_product.price == 180000.0
-#     assert first_product.quantity == 5
-#
-#     assert second_product.name == "Iphone 15"
-#     assert second_product.description == "512GB, Gray space"
-#     assert second_product.price == 210000.0
-#     assert second_product.quantity == 8
+import pytest
 
 
 def test_product(first_product, second_product):
@@ -46,3 +36,21 @@ def test_product_str(first_product):
 
 def test_product_add(first_product, second_product):
     assert first_product + second_product == 6144.58
+
+
+def test_product_creation_valid():
+    # Проверяем создание продукта с корректными параметрами
+    product = Product("Product A", "Description of Product A", 100.0, 5)
+
+    assert product.name == "Product A"
+    assert product.description == "Description of Product A"
+    assert product._Product__price == 100.0
+    assert product.quantity == 5
+
+
+def test_product_creation_zero_quantity():
+    # Проверяем создание продукта с нулевым количеством
+    with pytest.raises(ValueError) as excinfo:
+        Product("Product B", "Description of Product B", 50.0, 0)
+
+    assert str(excinfo.value) == "Товар с нулевым количеством не может быть добавлен"
