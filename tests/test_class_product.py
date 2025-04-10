@@ -1,5 +1,6 @@
-from src.class_product import Product
 import pytest
+
+from src.class_product import Product
 
 
 def test_product(first_product, second_product):

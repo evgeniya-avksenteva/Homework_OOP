@@ -83,4 +83,4 @@ def test_middle_price_no_products(capsys):
     # Проверяем вывод сообщения и результат
     captured = capsys.readouterr()
     assert result == 0
-    assert captured.out.strip() == 'В категории отсутствуют товары'
+    assert captured.out.strip() == "В категории отсутствуют товары"
